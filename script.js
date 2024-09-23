@@ -1,3 +1,22 @@
+function toggleImage() {
+    const usFlag = document.getElementById('us-flag');
+    const brFlag = document.getElementById('br-flag');
+
+    if (usFlag.style.zIndex == '0') {
+        usFlag.style.zIndex = '1';
+        brFlag.style.zIndex = '0';
+    };
+
+    if (brFlag.style.zIndex == '0') {
+        brFlag.style.zIndex = '1';
+        usFlag.style.zIndex = '0';
+    };
+
+    console.log('12')
+
+}
+
+
 document.addEventListener('DOMContentLoaded', function () {  
     const sections = document.querySelectorAll('section');  
 
