@@ -118,6 +118,51 @@ footer p {
     margin: 0;  
 }  
 
+.switch {
+    background-color: red;
+    border-radius: 20px;
+    height: 100px;
+    width: 100px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    bottom: 20px;
+    right: 20px;
+}
+
+.switch_btn {
+    background-color: transparent;
+    border: none;
+    width: 75%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.switch_btn > img {
+    width: 75%;
+    height: 75%;
+    position: absolute;
+    transition: ease-in-out 100s;
+}
+
+#us-flag {
+    z-index: 0;
+    top: 0;
+    left: 0;
+}
+
+#br-flag {
+    z-index: 1;
+    bottom: 0;
+    right: 0;
+}
+
 @media (max-width: 768px) {  
     h1 {  
         font-size: 2em; /* Ajuste de fonte para telas menores */  
