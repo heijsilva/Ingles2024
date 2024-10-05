@@ -23,15 +23,27 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Chamada inicial para mostrar as seções se já estiver visíveis  
     revealSections();  
-});  
 
-// Opções adicionais de interação  
-const navLinks = document.querySelectorAll('.navbar a');  
-navLinks.forEach(link => {  
-    link.addEventListener('click', function() {  
-        const targetId = this.getAttribute('href').substring(1);  
-        const targetSection = document.getElementById(targetId);  
-        targetSection.scrollIntoView({behavior: 'smooth'});  
-        // Para fechar o menu em dispositivos móveis, se necessário  
+    // Opções adicionais de interação para a navegação  
+    const navLinks = document.querySelectorAll('.navbar a');  
+    navLinks.forEach(link => {  
+        link.addEventListener('click', function(event) {  
+            // Evita o comportamento padrão de navegação  
+            event.preventDefault();  
+            
+            // Obtem o href do link para navegação  
+            const targetId = this.getAttribute('href');  
+
+            if (targetId.startsWith('#')) {  
+                // Se for uma ancoragem na mesma página  
+                const targetSection = document.querySelector(targetId);  
+                if (targetSection) {  
+                    targetSection.scrollIntoView({ behavior: 'smooth' });  
+                }  
+            } else {  
+                // Navegação entre páginas  
+                window.location.href = targetId; // Redireciona para a nova página  
+            }  
+        });  
     });  
 });
